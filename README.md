@@ -1,8 +1,7 @@
-Sink-MC
-=======
-http://sinkmc.org
+Sink-MC http://sinkmc.org
 =======
 
 SinkMC - Minecraft Server Variant
 
-Unfinished
+Status: Unfinished
+====
