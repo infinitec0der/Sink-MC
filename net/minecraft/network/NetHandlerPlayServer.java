@@ -89,10 +89,17 @@ import org.apache.logging.log4j.Logger;
 
 import com.google.common.base.Charsets;
 import com.google.common.collect.Lists;
+<<<<<<< HEAD
 import com.infinitecoder.sink.Sink;
 import com.infinitecoder.sink.entity.Player;
 import com.infinitecoder.sink.event.AsyncPlayerChatEvent;
 import com.infinitecoder.sink.event.PlayerQuitEvent;
+=======
+import com.infinitecoder.minebukkit.MineBukkit;
+import com.infinitecoder.minebukkit.entity.Player;
+import com.infinitecoder.minebukkit.event.PlayerChatEvent;
+import com.infinitecoder.minebukkit.event.PlayerQuitEvent;
+>>>>>>> 11816503e5ac44f9a43b753edb61b6c6f7992572
 
 public class NetHandlerPlayServer implements INetHandlerPlayServer
 {
@@ -614,9 +621,15 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer
         ChatComponentTranslation var2 = new ChatComponentTranslation("multiplayer.player.left", new Object[] {this.playerEntity.func_145748_c_()});
         var2.getChatStyle().setColor(EnumChatFormatting.YELLOW);
         
+<<<<<<< HEAD
         Player player = Sink.getServer().getPlayer(this.playerEntity.getCommandSenderName());
         PlayerQuitEvent quitEvent = new PlayerQuitEvent(player);
         quitEvent = (PlayerQuitEvent)Sink.getServer().getPluginManager().raiseEvent(quitEvent);
+=======
+        Player player = MineBukkit.getServer().getPlayer(this.playerEntity.getCommandSenderName());
+        PlayerQuitEvent quitEvent = new PlayerQuitEvent(player);
+        quitEvent = (PlayerQuitEvent)MineBukkit.getServer().getPluginManager().raiseEvent(quitEvent);
+>>>>>>> 11816503e5ac44f9a43b753edb61b6c6f7992572
         
         if(quitEvent.getQuitMessage().length() > 0) {
         	this.serverController.getConfigurationManager().func_148539_a(new ChatComponentText(quitEvent.getQuitMessage()));
@@ -626,7 +639,11 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer
         
         this.playerEntity.mountEntityAndWakeUp();
         this.serverController.getConfigurationManager().playerLoggedOut(this.playerEntity);
+<<<<<<< HEAD
         Sink.getServer().playerQuit(player);
+=======
+        MineBukkit.getServer().playerQuit(player);
+>>>>>>> 11816503e5ac44f9a43b753edb61b6c6f7992572
         
         if (this.serverController.isSinglePlayer() && this.playerEntity.getCommandSenderName().equals(this.serverController.getServerOwner()))
         {
@@ -711,6 +728,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer
 
             if (var2.startsWith("/"))
             {
+<<<<<<< HEAD
             	this.handleSlashCommand(var2);
             }
             else
@@ -720,6 +738,27 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer
                 if(!asyncChatEvent.isCancelled()) {
                 	if(asyncChatEvent.getFormat().length() > 0) {
                 		Sink.getServer().broadcast(asyncChatEvent.getFormat());
+=======
+            	if(var2.equalsIgnoreCase("/version")) {
+            		this.playerEntity.addChatComponentMessage(new ChatComponentText("§6Minebukkit (dev-1.0.0)"));
+            		this.playerEntity.addChatComponentMessage(new ChatComponentText("§dCreated by infinitec0der"));
+            	} else if(var2.equalsIgnoreCase("/yolo")) {
+            		this.playerEntity.addChatComponentMessage(new ChatComponentText("§cYolo indeed!"));
+            	} else if(var2.equalsIgnoreCase("/heal")) {
+            		this.playerEntity.setHealth(20F);
+            		this.playerEntity.addChatComponentMessage(new ChatComponentText("§eHealed!"));
+            	} else {
+            		this.handleSlashCommand(var2);
+            	}
+            }
+            else
+            {
+            	PlayerChatEvent chatEvent = new PlayerChatEvent(MineBukkit.getServer().getPlayer(playerEntity.getCommandSenderName()), var2);
+            	chatEvent = (PlayerChatEvent)MineBukkit.getServer().getPluginManager().raiseEvent(chatEvent);
+                if(!chatEvent.isCancelled()) {
+                	if(chatEvent.getFormat().length() > 0) {
+                		MineBukkit.getServer().broadcast(chatEvent.getFormat());
+>>>>>>> 11816503e5ac44f9a43b753edb61b6c6f7992572
                 	} else {
                 		ChatComponentTranslation var5 = new ChatComponentTranslation("chat.type.text", new Object[] {this.playerEntity.func_145748_c_(), var2});
                         this.serverController.getConfigurationManager().func_148544_a(var5, false);
@@ -741,8 +780,12 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer
      */
     private void handleSlashCommand(String p_147361_1_)
     {
+<<<<<<< HEAD
     	Sink.getServer().handleCommand(Sink.getServer().getPlayer(this.playerEntity), p_147361_1_);
         //this.serverController.getCommandManager().executeCommand(this.playerEntity, p_147361_1_);
+=======
+        this.serverController.getCommandManager().executeCommand(this.playerEntity, p_147361_1_);
+>>>>>>> 11816503e5ac44f9a43b753edb61b6c6f7992572
     }
 
     public void func_147350_a(C0APacketAnimation p_147350_1_)

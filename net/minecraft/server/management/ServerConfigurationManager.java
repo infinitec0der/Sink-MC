@@ -61,9 +61,15 @@ import org.apache.logging.log4j.Logger;
 import com.google.common.base.Charsets;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+<<<<<<< HEAD
 import com.infinitecoder.sink.Sink;
 import com.infinitecoder.sink.entity.Player;
 import com.infinitecoder.sink.event.PlayerJoinEvent;
+=======
+import com.infinitecoder.minebukkit.MineBukkit;
+import com.infinitecoder.minebukkit.entity.Player;
+import com.infinitecoder.minebukkit.event.PlayerJoinEvent;
+>>>>>>> 11816503e5ac44f9a43b753edb61b6c6f7992572
 import com.mojang.authlib.GameProfile;
 
 public abstract class ServerConfigurationManager
@@ -170,10 +176,17 @@ public abstract class ServerConfigurationManager
         var12.getChatStyle().setColor(EnumChatFormatting.YELLOW);
         
         Player player = new Player(p_72355_2_);
+<<<<<<< HEAD
         Sink.getServer().playerJoin(player);
         
         PlayerJoinEvent joinEvent = new PlayerJoinEvent(player);
         joinEvent = (PlayerJoinEvent)Sink.getServer().getPluginManager().raiseEvent(joinEvent);
+=======
+        MineBukkit.getServer().playerJoin(player);
+        
+        PlayerJoinEvent joinEvent = new PlayerJoinEvent(player);
+        joinEvent = (PlayerJoinEvent)MineBukkit.getServer().getPluginManager().raiseEvent(joinEvent);
+>>>>>>> 11816503e5ac44f9a43b753edb61b6c6f7992572
         System.err.println("join msg: " + joinEvent.getJoinMessage());
         if(joinEvent.getJoinMessage().length() > 0) {
         	this.func_148539_a(new ChatComponentText(joinEvent.getJoinMessage()));

@@ -31,8 +31,11 @@ public class S00PacketServerInfo extends Packet
     public void readPacketData(PacketBuffer p_148837_1_) throws IOException
     {
         this.field_149296_b = (ServerStatusResponse)field_149297_a.fromJson(p_148837_1_.readStringFromBuffer(32767), ServerStatusResponse.class);
+<<<<<<< HEAD
         System.err.println("READING DATA: ");
        	System.err.println(field_149296_b.func_151318_b().func_151332_a() + ", " + field_149296_b.func_151318_b().func_151332_a());
+=======
+>>>>>>> 11816503e5ac44f9a43b753edb61b6c6f7992572
     }
 
     /**

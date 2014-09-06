@@ -68,7 +68,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.google.common.base.Charsets;
+<<<<<<< HEAD
 import com.infinitecoder.sink.Sink;
+=======
+import com.infinitecoder.minebukkit.MineBukkit;
+>>>>>>> 11816503e5ac44f9a43b753edb61b6c6f7992572
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.GameProfileRepository;
 import com.mojang.authlib.minecraft.MinecraftSessionService;
@@ -191,7 +195,11 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
         this.field_152364_T = new YggdrasilAuthenticationService(p_i45281_2_, UUID.randomUUID().toString());
         this.field_147143_S = this.field_152364_T.createMinecraftSessionService();
         this.field_152365_W = this.field_152364_T.createProfileRepository();
+<<<<<<< HEAD
         new Sink();
+=======
+        new MineBukkit();
+>>>>>>> 11816503e5ac44f9a43b753edb61b6c6f7992572
     }
 
     /**
@@ -409,7 +417,11 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
     {
         if (!this.worldIsBeingDeleted)
         {
+<<<<<<< HEAD
         	Sink.getSink().stop();
+=======
+        	MineBukkit.getMineBukkit().stop();
+>>>>>>> 11816503e5ac44f9a43b753edb61b6c6f7992572
             logger.info("Stopping server");
 
             if (this.func_147137_ag() != null)
@@ -481,7 +493,11 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
                 this.field_147147_p.func_151321_a(new ServerStatusResponse.MinecraftProtocolVersionIdentifier("1.7.10", 5));
                 this.func_147138_a(this.field_147147_p);
                 
+<<<<<<< HEAD
                 Sink.getSink().start((ServerCommandManager)commandManager);
+=======
+                MineBukkit.getMineBukkit().start();
+>>>>>>> 11816503e5ac44f9a43b753edb61b6c6f7992572
 
                 while (this.serverRunning)
                 {
