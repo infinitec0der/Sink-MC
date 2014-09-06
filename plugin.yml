@@ -1,0 +1,4 @@
+main: com.infinitecoder.sink.test.BasicPlugin
+name: BasicPlugin
+version: 1.0
+author: infinitec0der
